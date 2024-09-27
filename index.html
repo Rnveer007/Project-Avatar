@@ -36,7 +36,15 @@
                 <div id="remove_form">
                     <span><i class="fa-regular fa-circle-xmark"></i></span>
                 </div>
+            </div>
 
+            <div id="delete_user_alert">
+                <p>Are you sure you want to delete this user</p>
+
+                <div id="user_btn">
+                    <button id="no">No</button>
+                    <button id="yes">Yes</button>
+                </div>
             </div>
         </div>
     </div>
@@ -49,7 +57,10 @@
         let avatarName = document.querySelector("#user_name");
         let btnSubmit = document.querySelector("#submit");
         let btnCancle = document.querySelector("#cancle");
-        let spanRemoveForm =document.querySelector("#remove_form")
+        let spanRemoveForm = document.querySelector("#remove_form")
+        let deleteUser = document.querySelector("#delete_user_alert")
+        let btn_yes = document.querySelector("#yes")
+        let btn_no = document.querySelector("#no")
 
 
 
@@ -59,36 +70,61 @@
 
 
         btnSubmit.addEventListener("click", function () {
-            if (avatarName.value === "" && typeof(avatarName.value)!== String) {
-                alert("Please enter valid value")
+            if (avatarName.value === "" && typeof (avatarName.value) !== String) {
+                alert("Please enter valid name")
             }
             else {
                 let userPara = document.createElement('p');
+                let span = document.createElement("span");
+                let removeAvatar = document.createElement("i");
+
+                removeAvatar.classList = "fa-regular fa-circle-xmark"
+                span.classList = "icon"
+                span.append(removeAvatar);
+
+
                 userPara.classList = "userPara";
                 userPara.innerHTML = avatarName.value[0];
-                userPara.style.textTransform ="capitalize"
+                userPara.style.textTransform = "capitalize"
+
 
                 dataStore.append(userPara);
+                userPara.append(span);
+
+
                 avatarForm.style.display = "none";
-                avatarName.value = ""
+                avatarName.value = "";
+
+                span.addEventListener("click", function () {
+                    deleteUser.style.display = "block"
+
+                })
+
+
+                btn_yes.addEventListener("click", function () {
+                    dataStore.removeChild(userPara);
+                    deleteUser.style.display = "none";
+                })
+
+                btn_no.addEventListener("click", function () {
+                    deleteUser.style.display = "none"
+                })
             }
 
         })
 
         btnCancle.addEventListener("click", function () {
             avatarForm.style.display = "none";
+            avatarName.value = "";
 
         })
-        
-        spanRemoveForm.addEventListener("click", function(){
-            avatarForm.style.display ="none"
+
+        spanRemoveForm.addEventListener("click", function () {
+            avatarForm.style.display = "none"
         })
+
+
     </script>
-
-
-
-
-
 
 
 
