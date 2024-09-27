@@ -51,6 +51,21 @@
 
 
     <script>
+
+        const colors = [
+            {backgroundColor : "green" , color : "white"},
+            {backgroundColor : "red" , color : "black"},
+            {backgroundColor : "black" , color : "white"},
+            {backgroundColor : "yellow" , color : "black"},
+            {backgroundColor : "purple" , color : "red"},
+        ];
+
+
+        function getRendomColors(){
+            return  Math.floor(Math.random() * colors.length );
+           
+        }
+
         let dataStore = document.querySelector("#box");
         let apperForm = document.querySelector("#add_circle");
         let avatarForm = document.querySelector("#addUser_form");
@@ -85,6 +100,10 @@
 
                 userPara.classList = "userPara";
                 userPara.innerHTML = avatarName.value[0];
+                const obj = colors[getRendomColors()];
+                userPara.style.backgroundColor = obj.backgroundColor;
+                userPara.style.color = obj.color;
+
                 userPara.style.textTransform = "capitalize"
 
 
@@ -123,6 +142,8 @@
         spanRemoveForm.addEventListener("click", function () {
             avatarForm.style.display = "none"
         })
+
+
 
 
     </script>

@@ -112,9 +112,9 @@
 .userPara {
     width: 50px;
     height: 50px;
-    border: 2px solid black;
-    background-color: #3e5e7a !important;
-    color: #fff;
+    border: 2px solid;
+    /* background-color: #3e5e7a !important;
+    color: #fff; */
     border-radius: 50%;
     text-align: center;
     align-content: center;
