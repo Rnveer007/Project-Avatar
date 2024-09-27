@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div id="box">
+
+            <div id="add_circle">
+                <p> + </p>
+            </div>
+
+
+            <div id="addUser_form">
+                <h2>User Name</h2>
+                <hr>
+                <h4>Enter Name</h4>
+                <input type="text" name="" id="user_name" placeholder="Your Name">
+                <hr>
+                <div id="btn">
+                    <button id="submit">Submit</button>
+                    <button id="cancle">Cancle</button>
+                </div>
+
+                <div id="remove_form">
+                    <span><i class="fa-regular fa-circle-xmark"></i></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let dataStore = document.querySelector("#box");
+        let apperForm = document.querySelector("#add_circle");
+        let avatarForm = document.querySelector("#addUser_form");
+        let avatarName = document.querySelector("#user_name");
+        let btnSubmit = document.querySelector("#submit");
+        let btnCancle = document.querySelector("#cancle");
+        let spanRemoveForm =document.querySelector("#remove_form")
+
+
+
+        apperForm.addEventListener("click", function () {
+            avatarForm.style.display = "block";
+        })
+
+
+        btnSubmit.addEventListener("click", function () {
+            if (avatarName.value === "" && typeof(avatarName.value)!== String) {
+                alert("Please enter valid value")
+            }
+            else {
+                let userPara = document.createElement('p');
+                userPara.classList = "userPara";
+                userPara.innerHTML = avatarName.value[0];
+                userPara.style.textTransform ="capitalize"
+
+                dataStore.append(userPara);
+                avatarForm.style.display = "none";
+                avatarName.value = ""
+            }
+
+        })
+
+        btnCancle.addEventListener("click", function () {
+            avatarForm.style.display = "none";
+
+        })
+        
+        spanRemoveForm.addEventListener("click", function(){
+            avatarForm.style.display ="none"
+        })
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
