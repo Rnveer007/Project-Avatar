@@ -99,7 +99,8 @@
                     deleteUser.style.display = "block"
 
                     btn_yes.addEventListener("click", function () {
-                        dataStore.removeChild(userPara);
+                        // dataStore.removeChild(userPara);
+                        userPara.remove();
                         deleteUser.style.display = "none";
                     })
     
