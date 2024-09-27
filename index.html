@@ -30,7 +30,7 @@
                 <hr>
                 <div id="btn">
                     <button id="submit">Submit</button>
-                    <button id="cancle">Cancle</button>
+                    <button id="cancle"> Cancel</button>
                 </div>
 
                 <div id="remove_form">
@@ -70,7 +70,7 @@
 
 
         btnSubmit.addEventListener("click", function () {
-            if (avatarName.value === "" && typeof (avatarName.value) !== String) {
+            if (avatarName.value === ""){
                 alert("Please enter valid name")
             }
             else {
@@ -98,17 +98,17 @@
                 span.addEventListener("click", function () {
                     deleteUser.style.display = "block"
 
+                    btn_yes.addEventListener("click", function () {
+                        dataStore.removeChild(userPara);
+                        deleteUser.style.display = "none";
+                    })
+    
+                    btn_no.addEventListener("click", function () {
+                        deleteUser.style.display = "none"
+                    })
                 })
 
 
-                btn_yes.addEventListener("click", function () {
-                    dataStore.removeChild(userPara);
-                    deleteUser.style.display = "none";
-                })
-
-                btn_no.addEventListener("click", function () {
-                    deleteUser.style.display = "none"
-                })
             }
 
         })
